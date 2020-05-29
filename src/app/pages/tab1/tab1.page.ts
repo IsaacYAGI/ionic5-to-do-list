@@ -43,9 +43,10 @@ export class Tab1Page {
           },
           {
             text:'Crear',
-            handler: (data: string) => {
-              if (data.length === 0) return;
+            handler: (data) => {
+              if (data.titulo.length === 0) return;
               
+              this.deseosService.crearLista(data.titulo);
               return;
             }
 
