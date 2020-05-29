@@ -17,6 +17,8 @@ export class DeseosService {
     this.listas.push(nuevaLista);
 
     this.guardarStorage();
+
+    return nuevaLista.id;
   }
 
   guardarStorage(){
@@ -26,5 +28,10 @@ export class DeseosService {
   cargarStorage(){
     const data = JSON.parse(localStorage.getItem('data'));
     if (data) this.listas = data;
+  }
+
+  obtenerLista(id: string | number){
+    id = Number(id);
+    return this.listas.find( element => element.id === id);
   }
 }
