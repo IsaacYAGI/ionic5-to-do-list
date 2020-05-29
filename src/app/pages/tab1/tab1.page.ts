@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DeseosService } from 'src/app/services/deseos.service';
 import { Lista } from 'src/app/models/lista.model';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -14,14 +15,47 @@ export class Tab1Page {
 
   constructor(
     public deseosService: DeseosService,
-    private router: Router
+    private router: Router,
+    private alertCtrl: AlertController
   ) { 
     this.listadoTareas = deseosService.listas;
   }
 
-  agregarLista(){
-    console.log("Navigating...");
-    this.router.navigateByUrl("/tabs/tab1/agregar");
+  async agregarLista(){
+    // console.log("Navigating...");
+    // this.router.navigateByUrl("/tabs/tab1/agregar");
+    
+      const alert = await this.alertCtrl.create({
+        header: 'Nueva lista',
+        inputs:[
+          {
+            name:'titulo',
+            type:'text',
+            placeholder:'Nombre de la lista'
+          }
+        ],
+        buttons: [
+          {
+            text:'Cancelar',
+            role:'cancel',
+            handler: () => console.log('Cancelar')
+
+          },
+          {
+            text:'Crear',
+            handler: (data: string) => {
+              if (data.length === 0) return;
+              
+              return;
+            }
+
+          },
+
+        ]
+      });
+  
+      alert.present();
+    
   }
 
 }
