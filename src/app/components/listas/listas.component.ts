@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Lista } from 'src/app/models/lista.model';
 import { Router } from '@angular/router';
+import { DeseosService } from 'src/app/services/deseos.service';
 
 @Component({
   selector: 'app-listas',
@@ -9,10 +10,9 @@ import { Router } from '@angular/router';
 })
 export class ListasComponent implements OnInit {
 
-  @Input() listadoTareas: Lista[] = [];
-
   constructor(
-    private router: Router
+    private router: Router,
+    public deseosService: DeseosService
   ) { }
 
   ngOnInit() {}
