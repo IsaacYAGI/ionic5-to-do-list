@@ -7,12 +7,11 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" color="dark">
-  <ion-list color="dark">
-    <ion-item *ngFor="let item of listadoTareas" detail color="dark" (click)="listaSeleccionada(item)">
-      <ion-label>{{item.titulo}}</ion-label>
-      <ion-note color="tertiary" slot="end">{{ item.items.length }} items</ion-note>
-    </ion-item>
-  </ion-list>
+  <app-listas
+    [listadoTareas]="listadoTareas"
+  >
+  </app-listas>
+  
   <!-- fab placed to the top end -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button color="tertiary" (click)="agregarLista()">
