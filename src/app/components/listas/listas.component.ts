@@ -10,6 +10,7 @@ import { DeseosService } from 'src/app/services/deseos.service';
 })
 export class ListasComponent implements OnInit {
 
+  @Input() terminada = true;
   constructor(
     private router: Router,
     public deseosService: DeseosService
@@ -18,7 +19,10 @@ export class ListasComponent implements OnInit {
   ngOnInit() {}
 
   listaSeleccionada(item: Lista){
-    this.router.navigateByUrl(`/tabs/tab1/agregar/${item.id}`);
+    if (this.terminada)
+      this.router.navigateByUrl(`/tabs/tab2/agregar/${item.id}`);
+    else
+      this.router.navigateByUrl(`/tabs/tab1/agregar/${item.id}`);
   }
 
 }
