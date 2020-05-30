@@ -61,4 +61,8 @@ export class Tab1Page {
     
   }
 
+  listaSeleccionada(item: Lista){
+    this.router.navigateByUrl(`/tabs/tab1/agregar/${item.id}`);
+  }
+
 }
