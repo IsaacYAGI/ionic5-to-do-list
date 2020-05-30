@@ -10,6 +10,7 @@
   <ion-list color="dark">
     <ion-item *ngFor="let item of listadoTareas" detail color="dark" (click)="listaSeleccionada(item)">
       <ion-label>{{item.titulo}}</ion-label>
+      <ion-note color="tertiary" slot="end">{{ item.items.length }} items</ion-note>
     </ion-item>
   </ion-list>
   <!-- fab placed to the top end -->
